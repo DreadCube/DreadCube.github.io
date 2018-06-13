@@ -1,0 +1,83 @@
+@-webkit-keyframes scrollCover {
+
+	50% {
+		-webkit-transform-origin: 10% 0%;
+		-webkit-transform:  rotateY(-90deg) rotateX(-10deg);
+        /*visibility: hidden;*/
+	}
+
+	100% {
+		-webkit-transform-origin: 20% 0%;
+    	-webkit-transform:  rotateY(-180deg) rotateX(-10deg);
+        /*visibility: hidden;*/
+	}
+}
+
+@-webkit-keyframes scrollFirstPage {
+    50% {
+        -webkit-transform-origin: 0% 0%;
+        -webkit-transform:  rotateY(0deg) rotateX(0deg);
+    }
+
+    100% {
+        -webkit-transform-origin: 20% 0%;
+        -webkit-transform:  rotateY(-180deg) rotateX(-10deg);
+    }
+}
+
+.comic {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: center;
+}
+
+.pages {
+	display: none;
+}
+
+.scroll .pages {
+    display: flex;
+}
+
+
+
+/*TEMP*/
+.scroll .pages .page2
+{
+    display: none;
+}
+
+.scroll .cover .page {
+	-webkit-animation-name: scrollCover;
+    -webkit-animation-duration: 1s;
+    -webkit-transition-property: -webkit-transform, -webkit-transform-origin, visibility;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.scroll .pages .page1 .page {
+    visibility: hidden;
+	-webkit-animation-name: scrollFirstPage;
+    -webkit-animation-duration: 1s;
+    -webkit-transition-property: -webkit-transform, -webkit-transform-origin, visibility;
+    -webkit-animation-fill-mode: forwards;
+}
+
+/*.comic:hover {
+
+
+    animation-name: frontSideFlip;
+
+/*}
+
+.comic .backSide {
+	position: absolute;
+	max-width: 800px;
+	width: 800px;
+	height: 1000px;
+	background-color: #c7c6b7;
+}
+
+.comic:hover .backSide {
+	animation-name: backSideFlip;
+	animation-duration: 1s;
+}*/
