@@ -5,7 +5,8 @@
     display:inline-block;
     margin:.5em;
     padding:.5em 1em;
-    position:relative;
+    position: absolute;
+    top: 0;
 }
 
 .speech:before {
@@ -18,7 +19,7 @@
     left:24px;
     position:absolute;
     transform:skew(-15deg);
-    width:0;
+    width: 10;
 }
 
 .speech:after {
@@ -31,5 +32,5 @@
     left:27px;
     position:absolute;
     transform:skew(-15deg);
-    width:0;
+    width: 10;
 }

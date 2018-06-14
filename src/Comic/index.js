@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import Page from '../Page'
+import Cover from '../Cover'
 import Home from '../Home'
 import AboutMe from '../AboutMe'
+import CodersFail from '../CodersFail'
+
 import './index.css'
 
 class Comic extends Component {
@@ -10,26 +12,32 @@ class Comic extends Component {
 		super(props)
 
 		this.state = {
-			positionCover: true,
-            scroll: false
+            coverScroll: false,
+            normalScroll: false
 		}
 
         this.scroll = this.scroll.bind(this)
+        this.audio = new Audio();
+        this.audio.src = 'http://localhost:3000/page_turn.mp3'
 	}
 
     componentDidMount() {
-
-        this.page1.getElementsByClassName('page')[0].addEventListener('webkitAnimationStart', (event) => {
+        const audio = this.audio
+        this.cover.addEventListener('webkitAnimationEnd', (event) => {
+            audio.pause();
+            audio.currentTime = 0
+        })
+        /*this.page1.getElementsByClassName('page')[0].addEventListener('webkitAnimationStart', (event) => {
             console.log('kdjfk');
             setTimeout(() => {
                     this.cover.getElementsByClassName('page')[0].style.display = 'none'
                     event.target.style.visibility = 'visible'
             }, 500)
-        })
+        })*/
     }
 
     scroll() {
-        console.log('scroll');
+        this.audio.play()
         this.setState({
             scroll: true
         });
@@ -41,15 +49,14 @@ class Comic extends Component {
 		return (
 			<article className={'comic ' + (scroll ? 'scroll' : '')} onClick={this.scroll}>
 				<div className="cover" ref={cover => (this.cover = cover)}>
-					<AboutMe />
+					<Cover />
 				</div>
-                <div className="pages">
-    				<div className="page1" ref={page1 => (this.page1 = page1)} >
-    					<Home />
-    				</div>
-    				<div className="page2">
-    					<AboutMe />
-    				</div>
+
+                <div className="page1">
+                    <AboutMe />
+                </div>
+                <div className="page2">
+                    <CodersFail />
                 </div>
 			</article>
 		)

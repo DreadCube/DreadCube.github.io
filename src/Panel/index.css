@@ -4,11 +4,10 @@
 	box-shadow:0 6px 6px -6px #000;
 	display:inline-block;
 	flex:1 1;
-	height:200px;
-	margin:1vmin;
 	overflow:hidden;
 	position:relative;
 }
+
 
 .bg {
     width: 100%;

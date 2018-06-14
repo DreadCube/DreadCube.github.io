@@ -4,10 +4,12 @@ import './index.css'
 class Panel extends Component {
 
 	render() {
-		const {width, children, bgImage, bgRadient} = this.props
+		const {width, height, margin, children, bgImage, bgRadient} = this.props
 
 		let styles = {
-			flexBasis: width
+			flexBasis: width,
+			height: height || '200px',
+			margin: margin ||'1vmin'
 		}
 		let bgStyles = {
 		}

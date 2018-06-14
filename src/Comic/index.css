@@ -1,30 +1,84 @@
 @-webkit-keyframes scrollCover {
 
-	50% {
-		-webkit-transform-origin: 10% 0%;
-		-webkit-transform:  rotateY(-90deg) rotateX(-10deg);
-        /*visibility: hidden;*/
+	0% {
+        -webkit-transform: translateX(100%) scale(1, 1);
+
 	}
 
+    50% {
+        opacity: 1;
+    }
+
+    52% {
+        opacity: 0.5;
+    }
+    60% {
+        opacity: 0;
+    }
 	100% {
-		-webkit-transform-origin: 20% 0%;
-    	-webkit-transform:  rotateY(-180deg) rotateX(-10deg);
-        /*visibility: hidden;*/
+        -webkit-transform: translateX(50%) scale(-1, 1);
+        opacity: 0;
 	}
 }
 
-@-webkit-keyframes scrollFirstPage {
+@-webkit-keyframes scrollPageOne {
+
     50% {
-        -webkit-transform-origin: 0% 0%;
-        -webkit-transform:  rotateY(0deg) rotateX(0deg);
+        opacity: 1;
     }
 
     100% {
-        -webkit-transform-origin: 20% 0%;
-        -webkit-transform:  rotateY(-180deg) rotateX(-10deg);
+        -webkit-transform: translateX(-50%) scale(1, 1);
+        opacity: 1;
     }
 }
 
+@-webkit-keyframes scrollPageTwo {
+    100% {
+        -webkit-transform: translateX(-50%);
+    }
+}
+
+.comic {
+    display: flex;
+}
+
+.comic .cover {
+    -webkit-transform: translateX(100%);
+    z-index: 2;
+}
+
+.comic .page1 {
+    -webkit-transform: translateX(0%) scale(-1, 1);
+    opacity: 0;
+}
+
+.comic .page2 {
+    -webkit-transform: translateX(-100%);
+}
+
+.scroll .cover {
+    -webkit-animation-name: scrollCover;
+    -webkit-animation-duration: 0.8s;
+    -webkit-transition-property: -webkit-transform, opacity;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.scroll .page1 {
+    -webkit-animation-name: scrollPageOne;
+    -webkit-animation-duration: 0.8s;
+    -webkit-transition-property: -webkit-transform, opacity;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.scroll .page2 {
+    -webkit-animation-name: scrollPageTwo;
+    -webkit-animation-duration: 0.8s;
+    -webkit-transition-property: -webkit-transform, opacity;
+    -webkit-animation-fill-mode: forwards;
+}
+
+/*
 .comic {
 	display: flex;
 	flex-wrap: nowrap;
@@ -42,7 +96,7 @@
 
 
 /*TEMP*/
-.scroll .pages .page2
+/*.scroll .pages .page2
 {
     display: none;
 }

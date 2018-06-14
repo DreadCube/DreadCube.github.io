@@ -4,10 +4,16 @@ import './index.css'
 class Bubble extends Component {
 
 	render() {
-		const {text} = this.props
+		const {text, top, left, right, bottom} = this.props
 
+		const styles = {
+			top: top || null,
+			left: left || null,
+			right: right || null,
+			bottom: bottom || null
+		}
 		return (
-			<p className="speech">{text}</p>
+			<p className="speech" style={styles}>{text}</p>
 		)
 	}
 }
