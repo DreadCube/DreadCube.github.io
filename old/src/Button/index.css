@@ -1,0 +1,23 @@
+.button{
+	display: block;
+	margin: 0 auto;
+	background: none;
+	border: 2px solid black;
+	font-size: 15px;
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	width: 180px;
+	height: 64px;
+	transition: all 0.5s;
+	outline: none;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	box-shadow: green;
+}
+
+.button:hover {
+	background-color: black;
+	color: white;
+	cursor: pointer;
+	box-shadow: inset 0px 0px 15px 1px white;
+}
