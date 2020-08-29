@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "af4c841d9afb4710cb1a0daceb668728",
+    "revision": "409d995d2c3ade916c005760331d923c",
     "url": "/carttimes/index.html"
   },
   {
-    "revision": "ed611f231142972840ac",
+    "revision": "bed195910d5fc4e6ccbc",
     "url": "/carttimes/static/css/main.c2e1e05f.chunk.css"
   },
   {
-    "revision": "1c1673d46fce2dc304bd",
-    "url": "/carttimes/static/js/2.66e5b2a7.chunk.js"
+    "revision": "699c3bc12404ecda98b5",
+    "url": "/carttimes/static/js/2.ba7e0f72.chunk.js"
   },
   {
     "revision": "2e9a3dc74bcdc59167cc606597cdc6c1",
-    "url": "/carttimes/static/js/2.66e5b2a7.chunk.js.LICENSE.txt"
+    "url": "/carttimes/static/js/2.ba7e0f72.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ed611f231142972840ac",
-    "url": "/carttimes/static/js/main.47654adc.chunk.js"
+    "revision": "bed195910d5fc4e6ccbc",
+    "url": "/carttimes/static/js/main.0e418f47.chunk.js"
   },
   {
     "revision": "1e3737d325c784873473",
