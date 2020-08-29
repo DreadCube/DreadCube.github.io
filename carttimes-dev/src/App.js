@@ -8,10 +8,9 @@ import {DarkTheme, BaseProvider, styled} from 'baseui';
 import Content from './Content'
 const engine = new Styletron();
 const Centered = styled('div', {
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
+  /*display: 'flex',
   height: '100%',
+  width: '100%'*/
 });
 
 function App() {

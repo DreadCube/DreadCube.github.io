@@ -99,13 +99,11 @@ const Chart = ({seriesData, title}) => {
     }
 
     return (
-        <div style={{width: '90vw'}}>
             <ApexChart
                 options={options}
                 series={stateSeries}
                 type="area"
                 />
-        </div>
     )
 }
 

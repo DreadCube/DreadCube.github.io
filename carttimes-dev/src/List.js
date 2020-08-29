@@ -17,12 +17,10 @@ const List = ({title, seriesData}) => {
         racerDatas.push(filteredData)
     }
     
-    return <div style={{width: '90vw'}}>
-            <Table
+    return  <Table
                 columns={racers}
                 data={racerDatas}
             />
-        </div>
 }
 
 export default List

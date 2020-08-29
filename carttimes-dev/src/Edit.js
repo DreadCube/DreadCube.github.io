@@ -32,7 +32,7 @@ const Edit = () => {
     }
 
     const [racers, setRacers] = React.useState([])
-
+    console.log(racers)
     const [rounds, setRounds] = React.useState(2)
 
     React.useEffect(() => {

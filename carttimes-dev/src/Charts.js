@@ -31,7 +31,7 @@ const Charts = ({selectedRacers}) => {
 
     
     return (
-        <div>
+        <div style={{marginBottom: 50}}>
             {raceData.map(race => {
 
                 return <>
@@ -39,7 +39,7 @@ const Charts = ({selectedRacers}) => {
                         title={raceTimeFormatter(race.dateTime)}
                         seriesData={race.series}
                     />
-                        <List
+                    <List
                         title={raceTimeFormatter(race.dateTime)}
                         seriesData={race.series}
                     />
