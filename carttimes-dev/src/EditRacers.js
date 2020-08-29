@@ -15,7 +15,7 @@ const EditRacers = () => {
 
     console.log(racers)
     React.useEffect(() => {
-        const racersDb = new PouchDB('racers')
+        const racersDb = new PouchDB('http://localhost:5984/racers')
         racersDb.allDocs(
             {
                 include_docs: true
@@ -29,7 +29,7 @@ const EditRacers = () => {
     }, [])
 
     const onSubmit = (data) => {
-        const racersDB = new PouchDB('racers')
+        const racersDB = new PouchDB('http://localhost:5984/racers')
 
         racersDB.allDocs().then(res => {
             const nextId = String(res.rows.length)

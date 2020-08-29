@@ -14,7 +14,7 @@ const Edit = () => {
 
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
-        const racesDB = new PouchDB('races')
+        const racesDB = new PouchDB('http://localhost:5984/races')
         racesDB.createIndex({index: {fields: ['dateTime']}})
         racesDB.find({selector: {dateTime: {$eq: data.dateTime}}})
             .then(result => {
@@ -36,7 +36,7 @@ const Edit = () => {
     const [rounds, setRounds] = React.useState(2)
 
     React.useEffect(() => {
-        const racersDb = new PouchDB('racers')
+        const racersDb = new PouchDB('http://localhost:5984/racers')
         racersDb.allDocs(
             {
                 include_docs: true

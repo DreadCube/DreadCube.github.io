@@ -15,7 +15,7 @@ const Charts = ({selectedRacers}) => {
     const [raceData, setRaceData] = React.useState([])
 
     React.useEffect(() => {
-        const racesDB = new PouchDB('races')
+        const racesDB = new PouchDB('http://localhost:5984/races')
         racesDB.find({
             selector: {
                 dateTime: {
