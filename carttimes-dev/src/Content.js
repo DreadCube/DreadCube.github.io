@@ -9,6 +9,9 @@ import {HeadingLevel, Heading} from 'baseui/heading'
 import racersDB from './racersDB.json'
 
 import Charts from './Charts'
+import {Button} from 'baseui/button'
+
+import Edit from './Edit'
 
 const racers = racersDB
 
@@ -16,6 +19,7 @@ const racers = racersDB
 
 const Content = () => {
 
+    const [CONTENT_VIEW, setContentView] = React.useState('MAIN')
     const [checkedRacers, setCheckedRacers] = React.useState([])
 
 
@@ -35,22 +39,13 @@ const Content = () => {
     }
 
     return (<div style={{maxWidth: '100vw'}}>
+        <Button onClick={() => setContentView(CONTENT_VIEW === 'MAIN' ? 'EDIT': 'MAIN')}>{CONTENT_VIEW === 'MAIN' ? 'Edit Times' : 'Dashboard'}</Button>
         <HeadingLevel>
             <Heading>Cart Times</Heading>
         </HeadingLevel>
-        {racers.map((racer, index) => {
-            return (
-            <Checkbox
-                checked={checkedRacers.find(checkedRacer => checkedRacer === racer.id) >= 0}
-                onChange={e => toggleRacer(racer.id)}
-                labelPlacement={LABEL_PLACEMENT.right}
-              >
-                  {racer.name}
-              </Checkbox>
-            )
-        })}
-   
-            <Charts selectedRacers={checkedRacers} />
+            
+            {CONTENT_VIEW === 'MAIN' && <Charts selectedRacers={checkedRacers} />}
+            {CONTENT_VIEW === 'EDIT' && <Edit />}
         </div>)
 }
 
