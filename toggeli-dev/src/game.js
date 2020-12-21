@@ -32,8 +32,12 @@ class Game {
   }
 
   preload() {
+
+    this.load.json('kickerShapes', 'assets/kicker.json');
     this.load.image("ball", "assets/ball.png");
     this.load.image("kicker", "assets/kicker_1.png");
+    this.load.image('kickerKickA', 'assets/kicker_2.png');
+    this.load.image('kickerKickB', 'assets/kicker_3.png');
     this.load.image("background", "assets/background.png");
   }
 
@@ -57,7 +61,9 @@ class Game {
         team: "red",
         controls: {
           up: "up",
-          down: "down"
+          down: "down",
+          left: 'left',
+          right: 'right'
         }
       })
     );
@@ -68,7 +74,9 @@ class Game {
         team: "red",
         controls: {
           up: "W",
-          down: "S"
+          down: "S",
+          left: 'A',
+          right: 'D'
         }
       })
     );
@@ -79,7 +87,9 @@ class Game {
         team: "red",
         controls: {
           up: "W",
-          down: "S"
+          down: "S",
+          left: 'A',
+          right: 'D'
         }
       })
     );

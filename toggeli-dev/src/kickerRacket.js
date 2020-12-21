@@ -13,6 +13,13 @@ class KickerRacket {
 
     this.keyUp = game.input.keyboard.addKey(this.controls.up);
     this.keyDown = game.input.keyboard.addKey(this.controls.down);
+    this.keyLeft = game.input.keyboard.addKey(this.controls.left)
+    this.keyRight = game.input.keyboard.addKey(this.controls.right)
+
+
+    this.kickerShapes = game.cache.json.get('kickerShapes')
+
+
 
     if (options.team === "red" && options.position === RACKET_GOAL) {
       this.kickers.push(
@@ -67,6 +74,54 @@ class KickerRacket {
   }
 
   update() {
+
+    // Left Bewegung
+    if (this.keyLeft._justDown) {
+      this.kickers.forEach(kicker => {
+        kicker.kicker.setTexture('kickerKickA')
+        kicker.kicker.setFlipY(false)
+        kicker.changeBody()
+      })
+      if (this.keyLeft.getDuration() > 7) {
+        this.kickers.forEach(kicker => {
+          kicker.kicker.setTexture('kickerKickB')
+          kicker.kicker.setFlipY(false)
+        })
+      }
+    }
+    
+    if (!this.keyLeft._justDown && !this.keyRight._justDown) {
+      this.kickers.forEach(kicker => {
+        kicker.kicker.setTexture('kicker')
+        kicker.kicker.setFlipY(false)
+      })
+    }
+
+
+    // Right Bewegung
+    if (this.keyRight._justDown) {
+      this.kickers.forEach(kicker => {
+          kicker.kicker.setTexture('kickerKickA')
+          kicker.kicker.setFlipY(true)
+        }
+      )
+
+      if (this.keyRight.getDuration() > 7) {
+        this.kickers.forEach(kicker => {
+          kicker.kicker.setTexture('kickerKickB')
+          kicker.kicker.setFlipY(true)
+        }
+      )
+      }
+    }
+    
+    /*if (!this.keyRight._justDown) {
+      this.kickers.forEach(kicker => {
+        kicker.kicker.setTexture('kicker')
+       //kicker.kicker.scaleX *= 1;
+      })
+    }*/
+
     let moveBlocked = false;
     if (this.keyUp._justDown) {
       moveBlocked = this.kickers.some(
