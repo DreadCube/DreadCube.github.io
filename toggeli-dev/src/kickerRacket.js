@@ -22,8 +22,8 @@ class KickerRacket {
     if (options.team === "red" && options.position === RACKET_GOAL) {
       this.kickers.push(
         new Kicker(game, {
-          x: 930,
-          y: 260
+          x: gameWidht / 100 * 95,
+          y: gameHeight / 1 * 0.5
         })
       );
     }
@@ -31,16 +31,16 @@ class KickerRacket {
     if (options.team === "red" && options.position === RACKET_DEFENSE) {
       this.kickers.push(
         new Kicker(game, {
-          x: 750,
-          y: 80
+          x: gameWidht / 100 * 75,
+          y: gameHeight / 1.2 * 0.3
         }),
         new Kicker(game, {
-          x: 750,
-          y: 260
+          x: gameWidht / 100 * 75,
+          y: gameHeight / 1.2 * 0.6
         }),
         new Kicker(game, {
-          x: 750,
-          y: 440
+          x: gameWidht / 100 * 75,
+          y: gameHeight / 1.2 * 0.9
         })
       );
     }
@@ -48,7 +48,6 @@ class KickerRacket {
     if (options.team === "red" && options.position === RACKET_CENTER) {
 
       console.log(game.game)
-
 
       this.kickers.push(
         new Kicker(game, {

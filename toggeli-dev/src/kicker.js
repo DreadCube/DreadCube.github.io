@@ -65,8 +65,7 @@ class Kicker {
     switch (frame) {
       case 0:
         this.kicker = this.game.matter.add.sprite(x, y, 'kicker', 'kicker_1.png', {shape: this.kickerShapes.kicker_1, })
-        
-        break 
+      break 
 
       case 1:
         this.kicker = this.game.matter.add.sprite(x, y, 'kicker', 'kicker_2.png', {shape: this.kickerShapes.kicker_2})
@@ -76,8 +75,6 @@ class Kicker {
         this.kicker = this.game.matter.add.sprite(x, y, 'kicker', 'kicker_3.png', {
           shape: this.kickerShapes.kicker_3
         })
-
-        
       break
 
       case 3:
@@ -86,13 +83,10 @@ class Kicker {
 
       case 4:
         this.kicker = this.game.matter.add.sprite(x, y, 'kicker', 'kicker_5.png', {shape: this.kickerShapes.kicker_5})
-       
       break
     }
     
     this.applyKickerSettings()
-
-  
     
   }
 
