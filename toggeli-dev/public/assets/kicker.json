@@ -1,96 +1,129 @@
 {
-	"generator_info": "Shape definitions generated with PhysicsEditor. Visit https://www.codeandweb.com/physicseditor",
-	"kicker_1": {
-		"type": "fromPhysicsEditor",
-		"label": "kicker_1",
-		"isStatic": true,
-		"density": 0,
-		"restitution": 0,
-		"friction": 0,
-		"frictionAir": 0,
-		"frictionStatic": 0,
-		"collisionFilter": {
-			"group": 0,
-			"category": 1,
-			"mask": 255
-		},
-		"fixtures": [
-			{
-				"label": "",
-				"isSensor": false,
-				"vertices": [
-					[ { "x":4, "y":71 }, { "x":9, "y":76 }, { "x":90, "y":76 }, { "x":95, "y":71 }, { "x":90, "y":25 }, { "x":9, "y":25 }, { "x":4, "y":30 } ],
-					[ { "x":95, "y":30 }, { "x":90, "y":25 }, { "x":95, "y":71 } ]
-				]
+	"textures": [
+		{
+			"image": "kicker.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 95,
+				"h": 405
 			},
-			{
-				"label": "",
-				"isSensor": false,
-				"vertices": [
-					[ { "x":4, "y":71 }, { "x":9, "y":76 }, { "x":90, "y":76 }, { "x":95, "y":71 }, { "x":90, "y":25 }, { "x":9, "y":25 }, { "x":4, "y":30 } ],
-					[ { "x":95, "y":30 }, { "x":90, "y":25 }, { "x":95, "y":71 } ]
-				]
-			}
-		]
-	},
-	"kicker_2": {
-		"type": "fromPhysicsEditor",
-		"label": "kicker_2",
-		"isStatic": true,
-		"density": 0,
-		"restitution": 0,
-		"friction": 0,
-		"frictionAir": 0,
-		"frictionStatic": 0,
-		"collisionFilter": {
-			"group": 0,
-			"category": 1,
-			"mask": 255
-		},
-		"fixtures": [
-			{
-				"label": "",
-				"isSensor": false,
-				"vertices": [
-					[ { "x":86, "y":14 }, { "x":84, "y":13 }, { "x":67, "y":79 }, { "x":69, "y":76 }, { "x":87, "y":18 } ],
-					[ { "x":57, "y":84 }, { "x":67, "y":79 }, { "x":84, "y":13 }, { "x":84, "y":11 }, { "x":9, "y":25 }, { "x":4, "y":30 }, { "x":31, "y":76 }, { "x":43, "y":84 } ],
-					[ { "x":89, "y":19 }, { "x":87, "y":18 }, { "x":69, "y":76 }, { "x":91, "y":25 } ],
-					[ { "x":90, "y":76 }, { "x":95, "y":71 }, { "x":95, "y":30 }, { "x":91, "y":25 }, { "x":69, "y":76 } ],
-					[ { "x":16, "y":11 }, { "x":9, "y":25 }, { "x":84, "y":11 } ],
-					[ { "x":9, "y":76 }, { "x":31, "y":76 }, { "x":4, "y":30 }, { "x":4, "y":71 } ],
-					[ { "x":36, "y":81 }, { "x":43, "y":84 }, { "x":31, "y":76 } ]
-				]
-			}
-		]
-	},
-	"kicker_3": {
-		"type": "fromPhysicsEditor",
-		"label": "kicker_3",
-		"isStatic": true,
-		"density": 0,
-		"restitution": 0,
-		"friction": 0,
-		"frictionAir": 0,
-		"frictionStatic": 0,
-		"collisionFilter": {
-			"group": 0,
-			"category": 1,
-			"mask": 255
-		},
-		"fixtures": [
-			{
-				"label": "",
-				"isSensor": false,
-				"vertices": [
-					[ { "x":89, "y":13 }, { "x":87, "y":11 }, { "x":6, "y":29 }, { "x":4, "y":30 }, { "x":75, "y":76 }, { "x":89, "y":16 } ],
-					[ { "x":16, "y":0 }, { "x":6, "y":29 }, { "x":87, "y":11 }, { "x":84, "y":0 } ],
-					[ { "x":30, "y":87 }, { "x":40, "y":94 }, { "x":57, "y":95 }, { "x":25, "y":76 } ],
-					[ { "x":90, "y":76 }, { "x":95, "y":71 }, { "x":95, "y":29 }, { "x":89, "y":16 }, { "x":75, "y":76 } ],
-					[ { "x":9, "y":76 }, { "x":25, "y":76 }, { "x":4, "y":30 }, { "x":4, "y":71 } ],
-					[ { "x":25, "y":76 }, { "x":57, "y":95 }, { "x":64, "y":92 }, { "x":75, "y":76 }, { "x":4, "y":30 } ],
-					[ { "x":70, "y":87 }, { "x":75, "y":76 }, { "x":64, "y":92 } ]
-				]
-			}
-		]
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "kicker_3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 0,
+						"w": 93,
+						"h": 96
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 93,
+						"h": 96
+					}
+				},
+				{
+					"filename": "kicker_5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 4,
+						"w": 93,
+						"h": 96
+					},
+					"frame": {
+						"x": 1,
+						"y": 99,
+						"w": 93,
+						"h": 96
+					}
+				},
+				{
+					"filename": "kicker_2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 10,
+						"w": 93,
+						"h": 75
+					},
+					"frame": {
+						"x": 1,
+						"y": 197,
+						"w": 93,
+						"h": 75
+					}
+				},
+				{
+					"filename": "kicker_4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 15,
+						"w": 93,
+						"h": 75
+					},
+					"frame": {
+						"x": 1,
+						"y": 274,
+						"w": 93,
+						"h": 75
+					}
+				},
+				{
+					"filename": "kicker_1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 24,
+						"w": 93,
+						"h": 53
+					},
+					"frame": {
+						"x": 1,
+						"y": 351,
+						"w": 93,
+						"h": 53
+					},
+					"anchor": {
+						"x": 0.1,
+						"y": 0.5
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:90a309b48ac409bcd72e0b1278ced826:ca69da3c7365022c47d2c7d6967a713c:dcbf882ad3814b082d2c8f92e2607450$"
 	}
 }

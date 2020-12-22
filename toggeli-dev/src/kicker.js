@@ -1,31 +1,44 @@
 import Phaser from "phaser";
 
 class Kicker {
+
+  applyKickerSettings () {
+    this.kicker.setScale(0.6)
+    this.kicker.setAngle(this.options.left ? 90 : 270)
+    this.kicker.setStatic(true)
+    this.kicker.setName('kicker')
+  
+    this.kicker.setOrigin(0.5, 0.5)
+    this.kicker.body.restitution = 0.25;
+
+
+    this.kicker.body.allowGravity = false;
+    this.kicker.allowGravity = false;
+
+    this.kicker.setBounce(1, 1)
+
+  }
+
   constructor(game, options = {}) {
     this.options = options
     this.kickerShapes = game.cache.json.get('kickerShapes')
 
     this.game = game
-    this.kicker = game.matter.add.sprite(options.x, options.y, 'background', 'kicker', {shape: this.kickerShapes.kicker_1})
-
-    this.kicker.setScale(0.6)
-    this.kicker.setAngle(options.left ? 90 : 270)
-    this.kicker.setStatic(true)
 
 
-   /* this.kicker = game.matter.add
-      .image(options.x, options.y, "kicker")
-      .setScale(0.6)
-      .setAngle(options.left ? 90 : 270)
-      .setStatic(true);*/
+    this.kicker = game.matter.add.sprite(options.x, options.y, 'kicker', 'kicker_1.png', {shape: this.kickerShapes.kicker_1})
 
-    this.kicker.body.restitution = 1;
-    this.kicker.body.allowGravity = false;
-    this.kicker.allowGravity = false;
+    this.applyKickerSettings()
+
+
+
+
+
 
     this.game = game;
 
     this.kicker.body.onCollideCallback = event => {
+      
       if (event.bodyA.label === "bounds" || event.bodyB.label === "bounds") {
         this.collidesWithWall = true;
       }
@@ -42,23 +55,44 @@ class Kicker {
   }
 
 
-  changeBody(shape = 1) {
+  changeFrame(frame = 0) {
 
-    console.log(this.kicker)
-    this.kicker.setBody(this.kickerShapes.kicker_2)
-  /* this.kicker.destroy()
-    this.kicker = this.game.matter.add.sprite(this.options.x, this.options.y, 'background', 'kicker', {shape: this.kickerShapes.kicker_2})
-    this.kicker.setScale(0.6)
-    this.kicker.setAngle(this.options.left ? 90 : 270)
-    this.kicker.setStatic(true)*/
+    const x = this.kicker.x
+    const y = this.kicker.y
+   
+    this.kicker.destroy()
 
-    //const newBody = this.game.matter.bodies.fromVertices(this.options.x, this.options.y, [[], []],  this.kickerShapes.kicker_2)
-    /*çconsole.log(this.game.matter.bodies)
-    this.kicker.setAngle(this.options.left ? 90 : 270)
-    this.kicker.setExistingBody(newBody, true)*/
-    /*this.kicker.setScale(0.6)
-    this.kicker.setAngle(this.options.left ? 90 : 270)
-    this.kicker.setStatic(true)*/
+    switch (frame) {
+      case 0:
+        this.kicker = this.game.matter.add.sprite(x, y, 'kicker', 'kicker_1.png', {shape: this.kickerShapes.kicker_1, })
+        
+        break 
+
+      case 1:
+        this.kicker = this.game.matter.add.sprite(x, y, 'kicker', 'kicker_2.png', {shape: this.kickerShapes.kicker_2})
+      break
+
+      case 2:
+        this.kicker = this.game.matter.add.sprite(x, y, 'kicker', 'kicker_3.png', {
+          shape: this.kickerShapes.kicker_3
+        })
+
+        
+      break
+
+      case 3:
+        this.kicker = this.game.matter.add.sprite(x, y, 'kicker', 'kicker_4.png', {shape: this.kickerShapes.kicker_4})
+      break
+
+      case 4:
+        this.kicker = this.game.matter.add.sprite(x, y, 'kicker', 'kicker_5.png', {shape: this.kickerShapes.kicker_5})
+       
+      break
+    }
+    
+    this.applyKickerSettings()
+
+  
     
   }
 
