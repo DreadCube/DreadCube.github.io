@@ -1,0 +1,129 @@
+{
+	"textures": [
+		{
+			"image": "kicker.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 95,
+				"h": 405
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "kicker_3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 0,
+						"w": 93,
+						"h": 96
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 93,
+						"h": 96
+					}
+				},
+				{
+					"filename": "kicker_5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 4,
+						"w": 93,
+						"h": 96
+					},
+					"frame": {
+						"x": 1,
+						"y": 99,
+						"w": 93,
+						"h": 96
+					}
+				},
+				{
+					"filename": "kicker_2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 10,
+						"w": 93,
+						"h": 75
+					},
+					"frame": {
+						"x": 1,
+						"y": 197,
+						"w": 93,
+						"h": 75
+					}
+				},
+				{
+					"filename": "kicker_4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 15,
+						"w": 93,
+						"h": 75
+					},
+					"frame": {
+						"x": 1,
+						"y": 274,
+						"w": 93,
+						"h": 75
+					}
+				},
+				{
+					"filename": "kicker_1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 24,
+						"w": 93,
+						"h": 53
+					},
+					"frame": {
+						"x": 1,
+						"y": 351,
+						"w": 93,
+						"h": 53
+					},
+					"anchor": {
+						"x": 0.1,
+						"y": 0.5
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:90a309b48ac409bcd72e0b1278ced826:ca69da3c7365022c47d2c7d6967a713c:dcbf882ad3814b082d2c8f92e2607450$"
+	}
+}

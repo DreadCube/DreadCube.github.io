@@ -13,12 +13,17 @@ class KickerRacket {
 
     this.keyUp = game.input.keyboard.addKey(this.controls.up);
     this.keyDown = game.input.keyboard.addKey(this.controls.down);
+    this.keyLeft = game.input.keyboard.addKey(this.controls.left)
+    this.keyRight = game.input.keyboard.addKey(this.controls.right)
+
+    const gameHeight = game.game.config.height
+    const gameWidht = game.game.config.width
 
     if (options.team === "red" && options.position === RACKET_GOAL) {
       this.kickers.push(
         new Kicker(game, {
-          x: 930,
-          y: 260
+          x: gameWidht / 100 * 95,
+          y: gameHeight / 1 * 0.5
         })
       );
     }
@@ -26,47 +31,102 @@ class KickerRacket {
     if (options.team === "red" && options.position === RACKET_DEFENSE) {
       this.kickers.push(
         new Kicker(game, {
-          x: 750,
-          y: 80
+          x: gameWidht / 100 * 75,
+          y: gameHeight / 1.2 * 0.3
         }),
         new Kicker(game, {
-          x: 750,
-          y: 260
+          x: gameWidht / 100 * 75,
+          y: gameHeight / 1.2 * 0.6
         }),
         new Kicker(game, {
-          x: 750,
-          y: 440
+          x: gameWidht / 100 * 75,
+          y: gameHeight / 1.2 * 0.9
         })
       );
     }
 
     if (options.team === "red" && options.position === RACKET_CENTER) {
+
+      console.log(game.game)
+
       this.kickers.push(
         new Kicker(game, {
-          x: 480 + 60,
-          y: 40
+          x: gameWidht / 2 + 60,
+          y: gameHeight / 100 * 20
         }),
         new Kicker(game, {
-          x: 480 + 60,
-          y: 130 + 20
+          x: gameWidht / 2 + 60,
+          y: gameHeight / 100 * 40
         }),
         new Kicker(game, {
-          x: 480 + 60,
-          y: 260
+          x: gameWidht / 2 + 60,
+          y: gameHeight / 100 * 60
         }),
         new Kicker(game, {
-          x: 480 + 60,
-          y: 260 + 120
+          x: gameWidht / 2 + 60,
+          y: gameHeight / 100 * 80
         }),
-        new Kicker(game, {
-          x: 480 + 60,
-          y: 520 - 20
-        })
       );
     }
   }
 
+  positionReseted = false
+
   update() {
+
+    // Left Bewegung
+    if (this.keyLeft._justDown) {
+      this.positionReseted = false
+      this.kickers.forEach(kicker => {
+        //kicker.kicker.setTexture('kickerKickA')
+        kicker.kicker.setFlipY(false)
+        kicker.changeFrame(1)
+      })
+      if (this.keyLeft.getDuration() > 7) {
+        this.kickers.forEach(kicker => {
+         // kicker.kicker.setTexture('kickerKickB')
+          kicker.kicker.setFlipY(false)
+          kicker.changeFrame(2)
+        })
+      }
+    }
+    
+    if (!this.keyLeft._justDown && !this.keyRight._justDown && !this.positionReseted) {
+      this.kickers.forEach(kicker => {
+        kicker.changeFrame(0)
+        kicker.kicker.setFlipY(false)
+      })
+      this.positionReseted = true
+    }
+
+
+    // Right Bewegung
+    if (this.keyRight._justDown) {
+      this.positionReseted = false
+      this.kickers.forEach(kicker => {
+        //  kicker.kicker.setTexture('kickerKickA')
+          kicker.changeFrame(3)
+          //kicker.kicker.setFlipY(true)
+        }
+      )
+
+      if (this.keyRight.getDuration() > 7) {
+        this.kickers.forEach(kicker => {
+         // kicker.kicker.setTexture('kickerKickB')
+          kicker.changeFrame(4)
+          //kicker.kicker.setFlipY(true)
+        }
+      )
+      }
+    }
+    
+    /*if (!this.keyRight._justDown) {
+      this.kickers.forEach(kicker => {
+        kicker.kicker.setTexture('kicker')
+       //kicker.kicker.scaleX *= 1;
+      })
+    }*/
+
     let moveBlocked = false;
     if (this.keyUp._justDown) {
       moveBlocked = this.kickers.some(
@@ -79,11 +139,10 @@ class KickerRacket {
       }
     } else if (this.keyDown._justDown) {
       moveBlocked = this.kickers.some(kicker => {
+
+        console.log(kicker.kicker.height)
         return (
-          this.game.scale.height -
-            kicker.kicker.y -
-            kicker.kicker._displayOriginY <=
-          9
+            (kicker.kicker.y + 35) > this.game.game.config.height
         );
       });
       if (!moveBlocked) {
