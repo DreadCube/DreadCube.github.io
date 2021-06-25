@@ -1,11 +1,44 @@
 import React, {useState, useEffect} from 'react'
-import {ArwesThemeProvider, Text} from '@arwes/core'
-
+import {ArwesThemeProvider, Text, Button} from '@arwes/core'
+import { AnimatorGeneralProvider } from '@arwes/animation'
 import {createTheme} from '@arwes/design'
 
 import {BleepsProvider} from '@arwes/sounds'
 
 import './sandbox.css'
+
+const animatorGeneral = { duration: { enter: 200, exit: 200 } };
+
+
+function calculateAge(birthday) { // birthday is a date
+    var ageDifMs = Date.now() - birthday;
+    var ageDate = new Date(ageDifMs); // miliseconds from epoch
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+  }
+
+const AboutMe = () => {
+    const age = calculateAge(new Date(1997, 2, 4))
+   
+    return (
+        <>
+            <AnimatedText delay={0}>
+                Hi! My names Alexander Hofer.
+            </AnimatedText>
+            <AnimatedText delay={2000}>
+                Im {age} years old and a react developer.
+            </AnimatedText>
+            <AnimatedText delay={2000}>
+                I'm in love with geeky coding memes, netflix,
+                fancy Mitsubishis and also a floorball enthusiast.             
+            </AnimatedText>
+        </>
+    )
+}
+
+
+const pages = {
+    'aboutMe': <AboutMe />
+}
 
 const AnimatedText = ({children, delay = 0}) => {
 
@@ -20,8 +53,6 @@ const AnimatedText = ({children, delay = 0}) => {
     const audioSettings = { common: { volume: 0.25 } };
     const playersSettings = { type: { src: [SOUND_TYPE_URL], loop: true } };
     const bleepsSettings = { type: { player: 'type' } };
-
-
     
     return (
         <BleepsProvider
@@ -79,35 +110,59 @@ const COMMANDS = {
 }
 
 const Sandbox = () => {
-  const [activate, setActivate] = React.useState(true);
 
-  const [activeCommand, setActiveCommand] = React.useState(COMMANDS.start)
+
   const theme = createTheme()
 
-  const handleInput = (e) => {
-      const command = e.target.value
+  const SOUND_TYPE_URL = '/assets/sounds/type.mp3';
+  const duration = { enter: 1000 };
 
-      let newCommand = 'commandNotFound'
-    
-      if (COMMANDS[command]) {
-          newCommand = command
-      }
-      setActiveCommand(COMMANDS[newCommand])
-  } 
+  const audioSettings = { common: { volume: 0.25 } };
+  const playersSettings = { type: { src: [SOUND_TYPE_URL], loop: true } };
+  const bleepsSettings = { type: { player: 'type' } };
 
+  const [showMenu, setShowMenu] = useState(false)
+  const [activePage, setActivePage] = useState(null)
 
   return (
 
     <div style={{marginTop: 100, marginLeft: 100}}>
         <ArwesThemeProvider theme={theme}>
+            <BleepsProvider
+            audioSettings={audioSettings}
+            playersSettings={playersSettings}
+            bleepsSettings={bleepsSettings}
+            >
+                <AnimatorGeneralProvider animator={animatorGeneral}>
+                    {showMenu ? 
+                    <>
+                        <Button 
+                            palette="primary" 
+                            animator={{activate: true}}
+                            onClick={() => setActivePage('aboutMe')}
+                        >
+                            <Text>About Me</Text>
+                        </Button>
+                        <Button palette="primary" animator={{activate: true}}>
+                            <Text>My Skills</Text>
+                        </Button>
+                        <Button palette="primary" animator={{activate: true}}>
+                            <Text>My Projects</Text>
+                        </Button>
+                        <Button palette="primary" animator={{activate: true}}>
+                            <Text>Social Media</Text>
+                        </Button>
+                    </>
+                    :
+                    <Button onClick={() => setShowMenu(true)} palette="secondary">
+                        <Text>Login</Text>
+                    </Button>
+                }
 
-            <AnimatedText>Starting CUBE OS...</AnimatedText>
-            <br />
-            <AnimatedText delay={1000}>[CUBE OS version 1.3541]</AnimatedText>
-            <br />
-            <br />
-            {activeCommand.text}
-            <StyledInput onEnter={handleInput} />
+                    {activePage && pages[activePage]}
+                </AnimatorGeneralProvider>
+
+            </BleepsProvider>
         </ArwesThemeProvider>
     </div>
   );
@@ -116,36 +171,4 @@ const Sandbox = () => {
 
 
 export default Sandbox
-
-
-const StyledInput = ({onEnter}) => {
-    const [value, setValue] = useState('')
-    const onChange = (e) => {
-        setValue(e.target.value)
-    }
-    const onKeyDown = (e) => {
-        if (e.key === 'Enter') {
-            setValue('')
-            onEnter(e)
-        }
-    }
-    return (
-        <input autoFocus style={{
-            fontFamily: 'monospace',
-            color: 'rgb(0, 255, 255)',
-            textShadow: 'rgb(0 255 255) 0px 0px 1px',
-            width: '100%',
-            backgroundColor: '#000',
-            borderStyle: 'none',
-            outline: 'none'
-        }} 
-        type="text" 
-        value={value}
-        onChange={onChange}
-        onKeyDown={onKeyDown}
-        />
-    )
-}
-
-
 
